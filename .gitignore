@@ -1,0 +1,12 @@
+# .net local compilation files
+bin/
+obj/
+.idea
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/.idea.Business logic tier.iml
+/contentModel.xml
+/projectSettingsUpdater.xml
