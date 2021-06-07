@@ -9,7 +9,7 @@ namespace ExOld.Data
 {
     public class BookServiceREST : IBookService
     {
-        
+
         private string uri = "https://localhost:5000/Book";
         private HttpClient client;
 
@@ -31,8 +31,10 @@ namespace ExOld.Data
             {
                 throw new Exception($@"Error: {response.ReasonPhrase}");
             }
+
             string result = await response.Content.ReadAsStringAsync();
-            IList<Book> newBook = JsonSerializer.Deserialize<IList<Book>>(result, new JsonSerializerOptions{ PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+            IList<Book> newBook = JsonSerializer.Deserialize<IList<Book>>(result,
+                new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
             return newBook;
         }
 
@@ -49,10 +51,13 @@ namespace ExOld.Data
             {
                 throw new Exception($@"Error: {response.ReasonPhrase}");
             }
+
             string result = await response.Content.ReadAsStringAsync();
-            
-            Book removedBook = JsonSerializer.Deserialize<Book>(result, new JsonSerializerOptions{ PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+
+            Book removedBook = JsonSerializer.Deserialize<Book>(result,
+                new JsonSerializerOptions {PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
             return removedBook;
         }
-    
+    }
+
 }
